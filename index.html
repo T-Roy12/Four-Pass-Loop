@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0d2b22" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Four Pass" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-512.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Four Pass Loop</title>
+</head>
+<body>
+  <main class="app-shell">
+    <section id="home" class="view active">
+      <header class="home-hero">
+        <img src="images/maroon-scene.svg" alt="Maroon Bells reflected in Maroon Lake" />
+        <div class="hero-shade"></div>
+        <div class="hero-top">
+          <span class="glass-pill">CLOCKWISE</span>
+          <span class="glass-pill">AUG 9–11, 2026</span>
+        </div>
+        <div class="hero-copy">
+          <p>MAROON BELLS–SNOWMASS WILDERNESS</p>
+          <h1>Four Pass Loop</h1>
+          <span>Three days. Two camps. Four passes.</span>
+        </div>
+      </header>
+
+      <div class="home-content">
+        <section class="today-overview panel">
+          <div>
+            <span class="kicker">TRIP OVERVIEW</span>
+            <h2>28 miles around the Bells</h2>
+            <p>Maroon Lake Scenic Trailhead → East Fork → Upper Snowmass → Maroon Lake.</p>
+          </div>
+          <div class="trip-ring"><strong id="tripPercent">0%</strong><small>complete</small></div>
+        </section>
+
+        <div class="stat-grid">
+          <div class="stat-card"><strong>28.0</strong><span>Miles</span></div>
+          <div class="stat-card"><strong>4</strong><span>Passes</span></div>
+          <div class="stat-card"><strong>2</strong><span>Nights</span></div>
+          <div class="stat-card"><strong>11</strong><span>Photo Stops</span></div>
+        </div>
+
+        <button class="primary-action" id="startTodayBtn">
+          <span class="action-icon">🥾</span>
+          <span><small>OPEN DAILY PLAN</small><strong>Start Today’s Hike</strong></span>
+          <span>→</span>
+        </button>
+
+        <section class="panel compact-panel">
+          <div class="section-heading">
+            <div><span class="kicker">TRIP PROGRESS</span><h3>Milestones completed</h3></div>
+            <strong id="milestoneCount">0 / 15</strong>
+          </div>
+          <div class="progress-track"><div id="tripProgressBar"></div></div>
+        </section>
+
+        <div class="camp-grid">
+          <article class="camp-tile east-camp">
+            <span>Night 1 · Aug 9</span>
+            <h3>East Fork Zone</h3>
+          </article>
+          <article class="camp-tile snowmass-camp">
+            <span>Night 2 · Aug 10</span>
+            <h3>Upper Snowmass Zone</h3>
+          </article>
+        </div>
+
+        <section class="panel weather-panel">
+          <span class="weather-symbol">⚡</span>
+          <div><span class="kicker">TRAIL PRIORITY</span><h3>Weather comes first</h3><p>Check the forecast before leaving camp and descend immediately if thunder develops.</p></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="today" class="view page-view">
+      <header class="page-header">
+        <div><span class="kicker light">TODAY</span><h1>Your daily trail plan</h1><p>Everything in the order you will reach it.</p></div>
+      </header>
+
+      <div class="day-switcher" role="tablist" aria-label="Trip days">
+        <button class="active" data-day="day1"><small>AUG 9</small><strong>Day 1</strong></button>
+        <button data-day="day2"><small>AUG 10</small><strong>Day 2</strong></button>
+        <button data-day="day3"><small>AUG 11</small><strong>Day 3</strong></button>
+      </div>
+
+      <article id="day1" class="day-panel active">
+        <header class="day-hero">
+          <img src="images/maroon-scene.svg" alt="Maroon Bells" />
+          <div class="day-shade"></div>
+          <div class="day-hero-copy"><span>SATURDAY · AUGUST 9</span><h2>Maroon Lake → East Fork</h2><p>8.2 miles · Buckskin Pass · Estimated finish 2:00–3:00 PM</p></div>
+        </header>
+        <section class="daily-mileage panel" aria-label="Day 1 mileage summary">
+          <div><span class="kicker">DAILY MILEAGE</span><strong>8.2 miles</strong><small>Maroon Lake → East Fork Zone</small></div>
+          <div class="daily-trip-progress"><span>Trip progress</span><b>8.2 / 28.0 mi</b><div class="mini-progress"><i style="width:29.3%"></i></div></div>
+        </section>
+        <div class="day-summary-grid">
+          <div><small>WAKE</small><strong>5:30 AM</strong></div><div><small>START</small><strong>7:30 AM</strong></div><div><small>CAMP</small><strong>East Fork</strong></div>
+        </div>
+        <section class="sun-weather panel slim"><div><span>☀️</span><small>Sunrise</small><strong>6:15 AM</strong></div><div><span>🌤️</span><small>Forecast</small><strong>Check before trail</strong></div></section>
+        <div class="timeline-list">
+          <div class="timeline-item standard"><time>5:30 AM</time><div><span>Wake up</span><p>Breakfast and final gear check.</p></div></div>
+          <div class="timeline-item standard"><time>6:00 AM</time><div><span>Shuttle reservation</span><p>Have the QR voucher ready for two adults.</p></div></div>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-maroon-start" /><time>7:30 AM</time><div><span>📸 Maroon Lake</span><p>Mile 0.0 · Classic reflection before leaving.</p></div><b>✓</b></label>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-crater-day1" /><time>9:00 AM</time><div><span>📸 Crater Lake</span><p>Mile 1.8 · Bells framed by lake and evergreens.</p></div><b>✓</b></label>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-buckskin" /><time>11:30 AM</time><div><span>📸 Buckskin Pass</span><p>Mile 4.5 · Wide panorama toward the Bells.</p></div><b>✓</b></label>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-willow" /><time>12:45 PM</time><div><span>📸 Willow Lake Overlook</span><p>Mile 5.7 · Lake, basin, and ridgeline layers.</p></div><b>✓</b></label>
+          <div class="timeline-item camp-arrival"><time>2:00–3:00 PM</time><div><span>🏕️ East Fork Zone</span><p>Mile 8.2 · Settle into Night 1.</p></div></div>
+        </div>
+        <section class="panel camp-checks"><div class="section-heading"><div><span class="kicker">CAMP TASKS</span><h3>East Fork Zone</h3></div><strong class="task-count">0 / 4</strong></div><div class="task-grid"><label><input type="checkbox" data-key="d1-water" /><span>Filter water</span></label><label><input type="checkbox" data-key="d1-tent" /><span>Set up tent</span></label><label><input type="checkbox" data-key="d1-dinner" /><span>Eat dinner</span></label><label><input type="checkbox" data-key="d1-gear" /><span>Prepare morning gear</span></label></div></section>
+        <details class="mileage-card"><summary>Mileage breakdown <span>⌄</span></summary><ul><li>Maroon Lake → Crater Lake: 1.8 mi</li><li>Crater Lake → Buckskin Pass: 2.7 mi</li><li>Buckskin Pass → Willow Lake: 1.2 mi</li><li>Willow Lake → East Fork: 2.5 mi</li></ul></details>
+        <section class="panel notes-card"><span class="kicker">DAY 1 NOTES</span><textarea data-note="note-day1" placeholder="Add a trail note…"></textarea></section>
+      </article>
+
+      <article id="day2" class="day-panel">
+        <header class="day-hero">
+          <img src="images/pass-scene.svg" alt="High alpine mountain pass" />
+          <div class="day-shade"></div>
+          <div class="day-hero-copy"><span>SUNDAY · AUGUST 10</span><h2>East Fork → Upper Snowmass</h2><p>10.4 miles · Two passes · Estimated finish noon</p></div>
+        </header>
+        <section class="daily-mileage panel" aria-label="Day 2 mileage summary">
+          <div><span class="kicker">DAILY MILEAGE</span><strong>10.4 miles</strong><small>East Fork Zone → Upper Snowmass Zone</small></div>
+          <div class="daily-trip-progress"><span>Trip progress</span><b>18.6 / 28.0 mi</b><div class="mini-progress"><i style="width:66.4%"></i></div></div>
+        </section>
+        <div class="day-summary-grid"><div><small>WAKE</small><strong>4:30 AM</strong></div><div><small>START</small><strong>5:30 AM</strong></div><div><small>CAMP</small><strong>Upper Snowmass</strong></div></div>
+        <section class="sun-weather panel slim"><div><span>☀️</span><small>Sunrise</small><strong>6:15 AM</strong></div><div><span>🌤️</span><small>Forecast</small><strong>Check before trail</strong></div></section>
+        <div class="timeline-list">
+          <div class="timeline-item standard"><time>4:30 AM</time><div><span>Wake up</span><p>Breakfast and break camp.</p></div></div>
+          <div class="timeline-item standard"><time>5:30 AM</time><div><span>Begin hiking</span><p>45 minutes before sunrise.</p></div></div>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-frigid" /><time>8:00 AM</time><div><span>📸 Frigid Air Pass</span><p>Mile 2.8 · Morning light over the alpine basin.</p></div><b>✓</b></label>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-trail-rider" /><time>10:00 AM</time><div><span>📸 Trail Rider Pass</span><p>Mile 4.8 · Signature Snowmass Mountain backdrop.</p></div><b>✓</b></label>
+          <div class="timeline-item standard"><time>10:30 AM</time><div><span>Lunch break</span><p>Keep it short if clouds are building.</p></div></div>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-snowmass" /><time>11:15 AM</time><div><span>📸 Snowmass Lake</span><p>Mile 8.2 · Shoreline reflection view.</p></div><b>✓</b></label>
+          <div class="timeline-item camp-arrival"><time>12:00 PM</time><div><span>🏕️ Upper Snowmass Zone</span><p>Mile 10.4 · Settle into Night 2.</p></div></div>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-snowmass-sunset" /><time>7:55 PM</time><div><span>📸 Snowmass Lake Sunset</span><p>Evening reflection from camp.</p></div><b>✓</b></label>
+        </div>
+        <section class="panel camp-checks"><div class="section-heading"><div><span class="kicker">CAMP TASKS</span><h3>Upper Snowmass Zone</h3></div><strong class="task-count">0 / 4</strong></div><div class="task-grid"><label><input type="checkbox" data-key="d2-water" /><span>Filter water</span></label><label><input type="checkbox" data-key="d2-tent" /><span>Set up tent</span></label><label><input type="checkbox" data-key="d2-dinner" /><span>Eat dinner</span></label><label><input type="checkbox" data-key="d2-gear" /><span>Prepare morning gear</span></label></div></section>
+        <details class="mileage-card"><summary>Mileage breakdown <span>⌄</span></summary><ul><li>East Fork → Frigid Air Pass: 2.8 mi</li><li>Frigid Air → Trail Rider Pass: 2.0 mi</li><li>Trail Rider → Snowmass Lake: 3.4 mi</li><li>Snowmass Lake → Upper Snowmass: 2.2 mi</li></ul></details>
+        <section class="panel notes-card"><span class="kicker">DAY 2 NOTES</span><textarea data-note="note-day2" placeholder="Add a trail note…"></textarea></section>
+      </article>
+
+      <article id="day3" class="day-panel">
+        <header class="day-hero">
+          <img src="images/snowmass-scene.svg" alt="Upper Snowmass alpine basin" />
+          <div class="day-shade"></div>
+          <div class="day-hero-copy"><span>MONDAY · AUGUST 11</span><h2>Upper Snowmass → Maroon Lake</h2><p>9.4 miles · West Maroon Pass · Estimated finish noon</p></div>
+        </header>
+        <section class="daily-mileage panel" aria-label="Day 3 mileage summary">
+          <div><span class="kicker">DAILY MILEAGE</span><strong>9.4 miles</strong><small>Upper Snowmass Zone → Maroon Lake Trailhead</small></div>
+          <div class="daily-trip-progress"><span>Trip progress</span><b>28.0 / 28.0 mi</b><div class="mini-progress"><i style="width:100%"></i></div></div>
+        </section>
+        <div class="day-summary-grid"><div><small>WAKE</small><strong>4:30 AM</strong></div><div><small>START</small><strong>5:31 AM</strong></div><div><small>FINISH</small><strong>Maroon Lake</strong></div></div>
+        <section class="sun-weather panel slim"><div><span>☀️</span><small>Sunrise</small><strong>6:16 AM</strong></div><div><span>🌤️</span><small>Forecast</small><strong>Check before trail</strong></div></section>
+        <div class="timeline-list">
+          <div class="timeline-item standard"><time>4:30 AM</time><div><span>Wake up</span><p>Breakfast and break camp.</p></div></div>
+          <div class="timeline-item standard"><time>5:31 AM</time><div><span>Begin hiking</span><p>45 minutes before sunrise.</p></div></div>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-west-maroon" /><time>8:00 AM</time><div><span>📸 West Maroon Pass</span><p>Mile 3.3 · Early light across the Elk Mountains.</p></div><b>✓</b></label>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-wildflowers" /><time>8:15–10:00 AM</time><div><span>📸 Wildflower Meadows</span><p>Miles 3.5–6.0 · Colorful foregrounds on the descent.</p></div><b>✓</b></label>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-crater-day3" /><time>11:00 AM</time><div><span>📸 Crater Lake</span><p>Mile 7.6 · Final lake stop before the trailhead.</p></div><b>✓</b></label>
+          <label class="timeline-item photo-item"><input type="checkbox" data-key="photo-maroon-finish" /><time>12:00 PM</time><div><span>📸 Maroon Lake Finish</span><p>Mile 9.4 · Completion photo at the trailhead.</p></div><b>✓</b></label>
+          <div class="timeline-item camp-arrival"><time>12:00 PM</time><div><span>🏁 Trip complete</span><p>Finish at Maroon Lake Scenic Trailhead.</p></div></div>
+        </div>
+        <details class="mileage-card"><summary>Mileage breakdown <span>⌄</span></summary><ul><li>Upper Snowmass → West Maroon Pass: 3.3 mi</li><li>West Maroon Pass → West Maroon Creek: 2.7 mi</li><li>West Maroon Creek → Crater Lake: 1.6 mi</li><li>Crater Lake → Maroon Lake: 1.8 mi</li></ul></details>
+        <section class="panel notes-card"><span class="kicker">DAY 3 NOTES</span><textarea data-note="note-day3" placeholder="Add a trail note…"></textarea></section>
+      </article>
+    </section>
+
+    <section id="route" class="view page-view">
+      <header class="page-header route-header"><div><span class="kicker light">ROUTE</span><h1>Clockwise around the loop</h1><p>Tap a waypoint for mileage, elevation, and estimated arrival.</p></div></header>
+      <div class="route-list panel">
+        <button class="waypoint" data-detail="Start · Mile 0.0 · 7:30 AM"><span>01</span><div><small>AUG 9</small><strong>Maroon Lake Scenic Trailhead</strong></div><b>›</b></button>
+        <button class="waypoint" data-detail="Photo stop · Mile 1.8 · 9:00 AM"><span>02</span><div><small>DAY 1</small><strong>Crater Lake</strong></div><b>›</b></button>
+        <button class="waypoint" data-detail="12,462 ft · Mile 4.5 · 11:30 AM"><span>03</span><div><small>PASS 1</small><strong>Buckskin Pass</strong></div><b>›</b></button>
+        <button class="waypoint" data-detail="Night 1 · Mile 8.2 · 2:00–3:00 PM"><span>04</span><div><small>CAMP</small><strong>East Fork Zone</strong></div><b>›</b></button>
+        <button class="waypoint" data-detail="12,415 ft · Day 2 Mile 2.8 · 8:00 AM"><span>05</span><div><small>PASS 2</small><strong>Frigid Air Pass</strong></div><b>›</b></button>
+        <button class="waypoint" data-detail="12,420 ft · Day 2 Mile 4.8 · 10:00 AM"><span>06</span><div><small>PASS 3</small><strong>Trail Rider Pass</strong></div><b>›</b></button>
+        <button class="waypoint" data-detail="Night 2 · Day 2 Mile 10.4 · Noon"><span>07</span><div><small>CAMP</small><strong>Upper Snowmass Zone</strong></div><b>›</b></button>
+        <button class="waypoint" data-detail="12,500 ft · Day 3 Mile 3.3 · 8:00 AM"><span>08</span><div><small>PASS 4</small><strong>West Maroon Pass</strong></div><b>›</b></button>
+        <button class="waypoint" data-detail="Finish · Day 3 Mile 9.4 · Noon"><span>09</span><div><small>AUG 11</small><strong>Maroon Lake Scenic Trailhead</strong></div><b>›</b></button>
+      </div>
+      <div id="routeDetail" class="route-detail panel"><span class="kicker">SELECTED WAYPOINT</span><h3>Maroon Lake Scenic Trailhead</h3><p>Start · Mile 0.0 · 7:30 AM</p></div>
+    </section>
+
+    <section id="permits" class="view page-view">
+      <header class="page-header permit-header"><div><span class="kicker light">PERMITS</span><h1>Both nights confirmed</h1><p>Keep signed copies available offline.</p></div></header>
+      <article class="document-card panel"><div class="document-head"><div><span class="status">✓ CONFIRMED</span><h2>East Fork Zone</h2><p>August 9–10 · 2 hikers</p></div><strong>Night 1</strong></div><div class="document-meta"><span>Permit 0823399186-1</span><span>Entry Aug 9</span></div><a href="images/permit-east-fork.png" target="_blank"><img src="images/permit-east-fork.png" alt="East Fork Zone permit" /><span>Open full permit</span></a></article>
+      <article class="document-card panel"><div class="document-head"><div><span class="status">✓ CONFIRMED</span><h2>Upper Snowmass Zone</h2><p>August 10–11 · 2 hikers</p></div><strong>Night 2</strong></div><div class="document-meta"><span>Permit 0856203977-1</span><span>Exit Aug 11</span></div><a href="images/permit-upper-snowmass.png" target="_blank"><img src="images/permit-upper-snowmass.png" alt="Upper Snowmass Zone permit" /><span>Open full permit</span></a></article>
+    </section>
+
+    <section id="shuttle" class="view page-view">
+      <header class="page-header shuttle-header"><div><span class="kicker light">SHUTTLE</span><h1>Maroon Bells voucher</h1><p>Have the QR code ready before boarding.</p></div></header>
+      <article class="document-card panel voucher"><div class="document-head"><div><span class="status">✓ CONFIRMED</span><h2>6:00 AM Shuttle</h2><p>Sunday, August 9, 2026</p></div><strong>2 Adults</strong></div><div class="document-meta"><span>Booking K5ZRHB1G</span><span>Maroon Bells</span></div><a href="shuttle-vouchers.pdf" target="_blank"><img src="images/shuttle-voucher.png" alt="Maroon Bells shuttle voucher" /><span>Open full voucher PDF</span></a></article>
+    </section>
+
+    <section id="gear" class="view page-view">
+      <header class="page-header gear-header"><div><span class="kicker light">GEAR</span><h1>Pack smart. Keep it light.</h1><p>Your essentials, grouped and saved.</p></div></header>
+      <section class="panel gear-progress"><div><span class="kicker">PACKING PROGRESS</span><h2 id="gearCount">0 / 16 packed</h2></div><div class="gear-ring" id="gearRing">0%</div></section>
+      <div class="gear-groups">
+        <section class="panel gear-group"><h3>Shelter & Sleep</h3><label><input type="checkbox" data-key="gear-tent" /><span>Tent and stakes</span></label><label><input type="checkbox" data-key="gear-pad" /><span>Sleeping pad</span></label><label><input type="checkbox" data-key="gear-bag" /><span>Sleeping bag or quilt</span></label><label><input type="checkbox" data-key="gear-pillow" /><span>Pillow</span></label></section>
+        <section class="panel gear-group"><h3>Kitchen & Water</h3><label><input type="checkbox" data-key="gear-stove" /><span>Stove, fuel, and spoon</span></label><label><input type="checkbox" data-key="gear-filter" /><span>Water filter</span></label><label><input type="checkbox" data-key="gear-bottles" /><span>2–3 L water capacity</span></label><label><input type="checkbox" data-key="gear-food" /><span>Meals, snacks, electrolytes</span></label></section>
+        <section class="panel gear-group"><h3>Clothing & Safety</h3><label><input type="checkbox" data-key="gear-rain" /><span>Rain jacket</span></label><label><input type="checkbox" data-key="gear-warm" /><span>Warm layer</span></label><label><input type="checkbox" data-key="gear-headlamp" /><span>Headlamp and spare power</span></label><label><input type="checkbox" data-key="gear-firstaid" /><span>First aid and blister kit</span></label></section>
+        <section class="panel gear-group"><h3>Trail Essentials</h3><label><input type="checkbox" data-key="gear-permits" /><span>Permits and shuttle voucher</span></label><label><input type="checkbox" data-key="gear-map" /><span>Offline map or GPX</span></label><label><input type="checkbox" data-key="gear-bear" /><span>Approved food storage</span></label><label><input type="checkbox" data-key="gear-camera" /><span>Phone or camera</span></label></section>
+      </div>
+      <button class="reset-button" id="resetBtn">Reset all checkboxes</button>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <button class="active" data-view="home"><span>⌂</span><small>Home</small></button>
+    <button data-view="today"><span>🥾</span><small>Today</small></button>
+    <button data-view="route"><span>⌁</span><small>Route</small></button>
+    <button data-view="permits"><span>▣</span><small>Permits</small></button>
+    <button data-view="shuttle"><span>🚌</span><small>Shuttle</small></button>
+    <button data-view="gear"><span>✓</span><small>Gear</small></button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
