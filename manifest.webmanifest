@@ -1,6 +1,6 @@
 {
-  "name": "Four Pass Loop Adventure",
-  "short_name": "Four Pass",
+  "name": "Four Pass Loop 2.1 Phase 2",
+  "short_name": "Four Pass V2",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f5f1e8",
@@ -18,5 +18,6 @@
       "type": "image/svg+xml",
       "purpose": "any"
     }
-  ]
+  ],
+  "description": "Phase 2 trail companion for the Four Pass Loop."
 }
